@@ -1,4 +1,5 @@
 import 'package:cardiweb/lists/lists_screen.dart';
+import 'package:cardiweb/network_calls/network_calls_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ListsScreen(),
+      home: NetworkCallsScreen(),
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
         textTheme: TextTheme(
