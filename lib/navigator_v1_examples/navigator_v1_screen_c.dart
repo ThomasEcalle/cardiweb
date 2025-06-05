@@ -1,3 +1,4 @@
+import 'package:cardiweb/navigator_v1_examples/screen_c_parameters.dart';
 import 'package:flutter/material.dart';
 
 class NavigatorV1ScreenC extends StatelessWidget {
@@ -5,10 +6,10 @@ class NavigatorV1ScreenC extends StatelessWidget {
 
   const NavigatorV1ScreenC({
     super.key,
-    required this.id,
+    required this.parameters,
   });
 
-  final String id;
+  final ScreenCParameters parameters;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class NavigatorV1ScreenC extends StatelessWidget {
             spacing: 20,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('This is Screen C with ID: $id'),
+              Text('This is Screen C with ID: ${parameters.id}'),
               ElevatedButton(
                 onPressed: () {
                   Navigator.of(context).pop();

@@ -1,6 +1,7 @@
 import 'package:cardiweb/navigator_v1_examples/navigator_v1_home.dart';
 import 'package:cardiweb/navigator_v1_examples/navigator_v1_screen_b.dart';
 import 'package:cardiweb/navigator_v1_examples/page_not_found.dart';
+import 'package:cardiweb/navigator_v1_examples/screen_c_parameters.dart';
 import 'package:flutter/material.dart';
 
 import 'navigator_v1_examples/navigator_v1_screen_c.dart';
@@ -35,8 +36,8 @@ class MyApp extends StatelessWidget {
         switch (settings.name) {
           case NavigatorV1ScreenC.routeName:
             final arguments = settings.arguments;
-            if (arguments is String) {
-              screen = NavigatorV1ScreenC(id: arguments);
+            if (arguments is ScreenCParameters) {
+              screen = NavigatorV1ScreenC(parameters: arguments);
             }
             break;
         }
