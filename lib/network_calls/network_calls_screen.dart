@@ -11,7 +11,7 @@ class NetworkCallsScreen extends StatefulWidget {
 }
 
 class _NetworkCallsScreenState extends State<NetworkCallsScreen> {
-  bool _loading = false;
+  bool _loading = true;
   List<Product> _products = [];
 
   @override
@@ -23,24 +23,22 @@ class _NetworkCallsScreenState extends State<NetworkCallsScreen> {
   void _getProducts() async {
     final dio = Dio(BaseOptions(baseUrl: 'https://dummyjson.com'));
 
-    setState(() {
-      _loading = true;
-    });
-
     try {
       // Fake duration
       await Future.delayed(const Duration(seconds: 1));
       final response = await dio.get('/products');
       if (response.statusCode == 200) {
         final data = response.data['products'] as List;
-        _products = data.map((item) => Product.fromJson(item)).toList();
+        setState(() {
+          _loading = false;
+          _products = data.map((item) => Product.fromJson(item)).toList();
+        });
         return;
       }
 
       throw Exception('Failed to load products');
     } catch (e) {
       print('Error fetching products: $e');
-    } finally {
       setState(() {
         _loading = false;
       });
